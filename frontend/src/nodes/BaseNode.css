@@ -1,49 +1,133 @@
-/* frontend/src/nodes/BaseNode.css */
+/* BaseNode.css - Styles for the new V2 two-column node */
 
-.base-node {
-  width: 200px;
-  min-height: 80px; /* Use min-height to allow for resizing in Part 3 */
-  border: 1px solid #9e9e9e;
-  border-radius: 8px;
-  background-color: white;
+.base-node-v2 {
   display: flex;
-  flex-direction: column;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  font-family: sans-serif;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-md);
+  min-width: 400px;
+  font-family: var(--font-family);
+}
+
+/* --- Left Panel: Body --- */
+.node-body {
+  flex-grow: 1;
+  border-right: 1px solid var(--color-border);
 }
 
 .node-header {
-  background-color: #f0f0f0;
-  padding: 8px 10px;
-  font-weight: bold;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  border-bottom: 1px solid #ddd;
-  text-align: center;
-  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background-color: var(--color-primary-light);
+  border-top-left-radius: var(--border-radius-md);
+}
+
+.header-icon {
+  font-size: 16px;
+  color: var(--color-primary-purple);
+}
+
+.header-title {
+  font-weight: 600;
+  font-size: var(--font-size-md);
 }
 
 .node-content {
-  padding: 10px;
-  flex-grow: 1;
-  font-size: 13px;
+  padding: var(--spacing-lg);
+  font-size: var(--font-size-sm);
 }
 
-/* Basic styling for form elements within nodes */
+/* --- Right Panel: Outputs --- */
+.output-panel {
+  width: 250px;
+  flex-shrink: 0;
+  background-color: var(--color-output-panel-bg);
+  border-top-right-radius: var(--border-radius-md);
+  border-bottom-right-radius: var(--border-radius-md);
+}
+
+.output-header {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-medium);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.output-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  position: relative; /* For handle positioning */
+}
+
+.output-item + .output-item {
+  border-top: 1px solid var(--color-border);
+}
+
+.output-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.output-name {
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+}
+
+.output-description {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+}
+
+.output-handle-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.output-type-tag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: var(--border-radius-sm);
+}
+
+.output-type-tag.type-text {
+  color: var(--color-tag-text-blue);
+  background-color: var(--color-tag-bg-blue);
+}
+
+/* Customizing the React Flow handle */
+.output-handle {
+  width: 10px !important;
+  height: 10px !important;
+  background: var(--color-white) !important;
+  border: 2px solid var(--color-primary-purple) !important;
+  right: -17px !important; /* Position it outside the node border */
+}
+
+/* Styling for generic form elements inside node-content */
 .node-content label {
   display: block;
-  margin-bottom: 10px;
-  font-size: 13px;
-  color: #333;
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-medium);
+  font-weight: 500;
 }
 
 .node-content input,
-.node-content select,
-.node-content textarea {
+.node-content select {
   width: 100%;
-  box-sizing: border-box; /* Important for padding and width */
-  margin-top: 4px;
-  padding: 6px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  font-size: var(--font-size-sm);
 }
