@@ -7,16 +7,26 @@ import { LLMNode } from './nodes/llmNode';
 import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
 import { FilterNode } from './nodes/FilterNode';
+// FIX: Update the import paths to the new location
+import { CustomEdge } from './components/CustomEdge/CustomEdge';
+import './components/CustomEdge/CustomEdge.css';
+
 import 'reactflow/dist/style.css';
+
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
+
 const nodeTypes = {
   customInput: InputNode,
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
   filter: FilterNode,
+};
+
+const edgeTypes = {
+  custom: CustomEdge,
 };
 
 const selector = (state) => ({
@@ -97,6 +107,7 @@ export const PipelineUI = () => {
                 onDragOver={onDragOver}
                 onInit={setReactFlowInstance}
                 nodeTypes={nodeTypes}
+                edgeTypes={edgeTypes}
                 proOptions={proOptions}
                 snapGrid={[gridSize, gridSize]}
                 connectionLineType='smoothstep'

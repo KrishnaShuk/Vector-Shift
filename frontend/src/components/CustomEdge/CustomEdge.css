@@ -1,0 +1,54 @@
+/* --- NEW STYLES FOR THE EDGE LINE --- */
+.react-flow__edge-path {
+  stroke: var(--color-primary-purple); /* Use the same purple as the node border */
+  stroke-width: 2.5; /* Make the line bolder */
+}
+
+
+.edgebutton-foreignobject {
+  pointer-events: none;
+}
+
+.edgebutton-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edgebutton {
+  pointer-events: all;
+  width: 28px;
+  height: 28px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.edgebutton svg {
+  width: 16px;
+  height: 16px;
+  color: #888;
+  transition: color 0.2s ease-in-out;
+}
+
+.edgebutton:hover {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+  transform: scale(1.1);
+}
+
+.edgebutton:hover svg {
+  color: #b91c1c;
+}
+
