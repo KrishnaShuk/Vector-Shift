@@ -1,16 +1,37 @@
-import { Position } from 'reactflow';
 import { BaseNode } from './BaseNode';
 
 export const FilterNode = ({ id, data }) => {
-    const handles = [
-    { type: 'target', position: Position.Left, id: `${id}-input` },
-    { type: 'source', position: Position.Right, id: `${id}-true`, style: { top: '33%' } },
-    { type: 'source', position: Position.Right, id: `${id}-false`, style: { top: '66%' } },
+  // FIX: Use ?? for consistency
+  const nodeName = data.nodeName ?? 'filter_0';
+
+  const inputs = [
+    { id: `${id}-input` },
+  ];
+
+  const outputs = [
+    {
+      id: `${id}-true`,
+      name: 'true',
+      description: 'Path if condition is met',
+      type: 'Boolean',
+    },
+    {
+      id: `${id}-false`,
+      name: 'false',
+      description: 'Path if condition is not met',
+      type: 'Boolean',
+    },
   ];
 
   return (
-    <BaseNode title="Filter" handles={handles}>
-      <span>Splits data based on a condition.</span>
+    <BaseNode
+      nodeId={id}
+      title="Filter"
+      description="Splits data based on a defined condition"
+      nodeName={nodeName}
+      inputs={inputs}
+      outputs={outputs}
+    >
     </BaseNode>
   );
-}  
+};

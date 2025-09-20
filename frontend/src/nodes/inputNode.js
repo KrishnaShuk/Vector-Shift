@@ -1,27 +1,30 @@
 import { useState } from 'react';
-import { Position } from 'reactflow';
 import { BaseNode } from './BaseNode';
 
 export const InputNode = ({ id, data }) => {
-  const [currName, setCurrName] = useState(data?.inputName || id.replace('customInput-', 'input_'));
+  // FIX: Use ?? to allow for an empty string as a valid name
+  const nodeName = data.nodeName ?? 'input_0';
   const [inputType, setInputType] = useState(data?.inputType || 'Text');
 
-  const handles = [
-    { type: 'source', position: Position.Right, id: `${id}-value` }
+  const outputs = [
+    {
+      id: `${id}-value`,
+      name: nodeName,
+      description: `The input data of type ${inputType}`,
+      type: inputType,
+    },
   ];
 
   return (
-    <BaseNode title="Input" handles={handles}>
+    <BaseNode
+      nodeId={id}
+      title="Input"
+      description="Pass data of different types into your workflow"
+      nodeName={nodeName}
+      outputs={outputs}
+    >
       <label>
-        Name:
-        <input 
-          type="text" 
-          value={currName} 
-          onChange={(e) => setCurrName(e.target.value)} 
-        />
-      </label>
-      <label>
-        Type:
+        Type
         <select value={inputType} onChange={(e) => setInputType(e.target.value)}>
           <option value="Text">Text</option>
           <option value="File">File</option>
@@ -30,4 +33,3 @@ export const InputNode = ({ id, data }) => {
     </BaseNode>
   );
 }
-

@@ -1,5 +1,3 @@
-// store.js
-
 import { create } from "zustand";
 import {
     addEdge,
@@ -11,6 +9,7 @@ import {
 export const useStore = create((set, get) => ({
     nodes: [],
     edges: [],
+    nodeIDs: {}, // FIX: Initialize the nodeIDs object
     getNodeID: (type) => {
         const newIDs = {...get().nodeIDs};
         if (newIDs[type] === undefined) {
@@ -38,6 +37,12 @@ export const useStore = create((set, get) => ({
     onConnect: (connection) => {
       set({
         edges: addEdge({...connection, type: 'smoothstep', animated: true, markerEnd: {type: MarkerType.Arrow, height: '20px', width: '20px'}}, get().edges),
+      });
+    },
+    deleteNode: (nodeId) => {
+      set({
+        nodes: get().nodes.filter(node => node.id !== nodeId),
+        edges: get().edges.filter(edge => edge.source !== nodeId && edge.target !== nodeId),
       });
     },
     updateNodeField: (nodeId, fieldName, fieldValue) => {

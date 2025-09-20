@@ -1,16 +1,32 @@
-import { Position } from 'reactflow';
 import { BaseNode } from './BaseNode';
 
 export const LLMNode = ({ id, data }) => {
-  const handles = [
-    { type: 'target', position: Position.Left, id: `${id}-system`, style: { top: '33%' } },
-    { type: 'target', position: Position.Left, id: `${id}-prompt`, style: { top: '66%' } },
-    { type: 'source', position: Position.Right, id: `${id}-response` }
+  // FIX: Use ?? for consistency
+  const nodeName = data.nodeName ?? 'llm_0';
+
+  const inputs = [
+    { id: `${id}-system`, style: { top: '33%' } },
+    { id: `${id}-prompt`, style: { top: '66%' } },
+  ];
+
+  const outputs = [
+    {
+      id: `${id}-response`,
+      name: 'response',
+      description: 'The LLM generated response',
+      type: 'Text',
+    },
   ];
 
   return (
-    <BaseNode title="LLM" handles={handles}>
-      <span>This node processes language prompts.</span>
+    <BaseNode
+      nodeId={id}
+      title="LLM"
+      description="Processes prompts using a Large Language Model"
+      nodeName={nodeName}
+      inputs={inputs}
+      outputs={outputs}
+    >
     </BaseNode>
   );
-}
+};
