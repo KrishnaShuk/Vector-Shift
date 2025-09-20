@@ -26,6 +26,7 @@ export const LLMNode = ({ id, data }) => {
       nodeName={nodeName}
       inputs={inputs}
       outputs={outputs}
+      hasOutputs={true}
     >
     </BaseNode>
   );

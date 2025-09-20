@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { BaseNode } from './BaseNode';
 
 export const TextNode = ({ id, data }) => {
-  // FIX: Use ?? to allow for an empty string as a valid name
   const nodeName = data.nodeName ?? 'text_0';
   const [currText, setCurrText] = useState(data?.text || '{{input}}');
   
-  const inputs = []; 
+  // FIX: Added a default input handle. This will become dynamic in Part 3.
+  const inputs = [
+    { id: `${id}-input` },
+  ]; 
   
   const outputs = [
     {
@@ -25,6 +27,7 @@ export const TextNode = ({ id, data }) => {
       nodeName={nodeName}
       inputs={inputs}
       outputs={outputs}
+      hasOutputs={true}
     >
       <label>
         Text

@@ -22,6 +22,7 @@ export const InputNode = ({ id, data }) => {
       description="Pass data of different types into your workflow"
       nodeName={nodeName}
       outputs={outputs}
+      hasOutputs={true}
     >
       <label>
         Type

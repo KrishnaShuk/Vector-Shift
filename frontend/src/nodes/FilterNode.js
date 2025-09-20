@@ -31,6 +31,7 @@ export const FilterNode = ({ id, data }) => {
       nodeName={nodeName}
       inputs={inputs}
       outputs={outputs}
+      hasOutputs={true} 
     >
     </BaseNode>
   );

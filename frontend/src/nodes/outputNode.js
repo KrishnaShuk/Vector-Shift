@@ -16,6 +16,7 @@ export const OutputNode = ({ id, data }) => {
       nodeName={nodeName}
       inputs={inputs}
       outputs={[]}
+      hasOutputs={false}
     >
       <p style={{color: 'var(--color-text-medium)', fontSize: 'var(--font-size-sm)'}}>
         The final output of this path will be named "{nodeName}".
