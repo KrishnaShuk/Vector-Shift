@@ -7,14 +7,32 @@ import { LLMNode } from './nodes/llmNode';
 import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
 import { FilterNode } from './nodes/FilterNode';
+import { NoteNode } from './nodes/NoteNode';
+import { GroupNode } from './nodes/GroupNode';
+import { TriggerNode } from './nodes/TriggerNode';
+import { StartNode } from './nodes/StartNode';
 import { CustomEdge } from './components/CustomEdge/CustomEdge';
 import 'reactflow/dist/style.css';
 import './components/CustomEdge/CustomEdge.css';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
-const nodeTypes = { customInput: InputNode, llm: LLMNode, customOutput: OutputNode, text: TextNode, filter: FilterNode };
-const edgeTypes = { custom: CustomEdge };
+
+const nodeTypes = {
+  customInput: InputNode,
+  llm: LLMNode,
+  customOutput: OutputNode,
+  text: TextNode,
+  filter: FilterNode,
+  note: NoteNode,
+  group: GroupNode,
+  trigger: TriggerNode,
+  start: StartNode,
+};
+
+const edgeTypes = {
+  custom: CustomEdge,
+};
 
 const selector = (state) => ({
   nodes: state.nodes,
@@ -42,12 +60,11 @@ export const PipelineUI = () => {
         y: event.clientY - reactFlowBounds.top,
       });
 
-      // Create a simple node object. The store will handle naming and ID logic.
       const newNode = {
-        id: `${appData.nodeType}-${+new Date()}`, // A simple unique ID
+        id: `${appData.nodeType}-${+new Date()}`,
         type: appData.nodeType,
         position,
-        data: { }, // The store will populate the name
+        data: { },
       };
 
       addNode(newNode);
@@ -61,7 +78,7 @@ export const PipelineUI = () => {
   }, []);
 
   return (
-    <div ref={reactFlowWrapper} style={{ width: '100vw', height: '70vh' }}>
+    <div ref={reactFlowWrapper} style={{ width: '100%', height: '100%' }}>
       <ReactFlow
         nodes={nodes} edges={edges}
         onNodesChange={onNodesChange} onEdgesChange={onEdgesChange}

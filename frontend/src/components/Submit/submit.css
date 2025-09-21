@@ -1,15 +1,8 @@
-.submit-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background-color: var(--color-white);
-  border-top: 1px solid var(--color-border);
-}
+/* .submit-container has been removed */
 
 .submit-button {
-  padding: 12px 24px;
-  font-size: var(--font-size-md);
+  padding: 10px 20px; /* Slightly smaller for a toolbar */
+  font-size: 16px; /* Adjusted size */
   font-weight: 600;
   color: var(--color-white);
   background-color: var(--color-primary-purple);
@@ -18,6 +11,7 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   box-shadow: var(--shadow-sm);
+  white-space: nowrap; /* Prevent text from wrapping */
 }
 
 .submit-button:hover {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStore } from './store';
+import { useStore } from '../../store';
 import { shallow } from 'zustand/shallow';
 import './submit.css'; // We will create this CSS file next
 

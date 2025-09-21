@@ -11,35 +11,35 @@
   --color-white: #ffffff;
   --color-tag-text-blue: #1d4ed8;
   --color-tag-bg-blue: #dbeafe;
-
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 12px;
-  --spacing-lg: 16px;
-  --spacing-xl: 24px;
-  --border-radius-sm: 4px;
-  --border-radius-md: 12px;
-
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  --font-size-xs: 12px;
-  --font-size-sm: 13px;
-  --font-size-md: 14px;
-
+  --spacing-xs: 4px; --spacing-sm: 8px; --spacing-md: 12px; --spacing-lg: 16px; --spacing-xl: 24px;
+  --border-radius-sm: 4px; --border-radius-md: 12px;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-size-xs: 12px; --font-size-sm: 13px; --font-size-md: 14px;
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-node: 0px 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
-body {
+/* --- GLOBAL LAYOUT STYLES --- */
+html, body, #root {
+  height: 100vh; /* Use viewport height unit */
+  width: 100vw;
   margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent page-level scrollbars */
   font-family: var(--font-family);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-background-page);
   color: var(--color-text-dark);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Fill the #root div */
+}
+
+.canvas-container {
+  flex-grow: 1; /* This is the key property that makes the canvas fill remaining space */
+  position: relative;
 }
