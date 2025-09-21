@@ -1,7 +1,6 @@
 import { BaseNode } from './BaseNode';
 
 export const FilterNode = ({ id, data }) => {
-  // FIX: Use ?? for consistency
   const nodeName = data.nodeName ?? 'filter_0';
 
   const inputs = [

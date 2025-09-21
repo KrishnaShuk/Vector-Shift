@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const PanelToggleIcon = () => (
   <svg
     width="1em"

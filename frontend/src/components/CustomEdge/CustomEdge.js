@@ -1,6 +1,6 @@
 import React from 'react';
 import { getSmoothStepPath } from 'reactflow';
-import { useStore } from '../../store'; // Note: The path to store might need to be adjusted
+import { useStore } from '../../store'; 
 import { DeleteIcon } from '../../icons/DeleteIcon';
 import './CustomEdge.css';
 

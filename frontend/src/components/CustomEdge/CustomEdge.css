@@ -1,7 +1,6 @@
-/* --- NEW STYLES FOR THE EDGE LINE --- */
 .react-flow__edge-path {
-  stroke: var(--color-primary-purple); /* Use the same purple as the node border */
-  stroke-width: 2.5; /* Make the line bolder */
+  stroke: var(--color-primary-purple); 
+  stroke-width: 2.5; 
 }
 
 

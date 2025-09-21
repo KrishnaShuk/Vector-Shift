@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { BaseNode } from './BaseNode';
 
 export const InputNode = ({ id, data }) => {
-  // FIX: Use ?? to allow for an empty string as a valid name
   const nodeName = data.nodeName ?? 'input_0';
   const [inputType, setInputType] = useState(data?.inputType || 'Text');
 

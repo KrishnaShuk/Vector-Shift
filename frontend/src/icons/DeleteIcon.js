@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const DeleteIcon = () => (
   <svg
     stroke="currentColor"

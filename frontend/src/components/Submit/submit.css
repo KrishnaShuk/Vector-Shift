@@ -1,8 +1,6 @@
-/* .submit-container has been removed */
-
 .submit-button {
-  padding: 10px 20px; /* Slightly smaller for a toolbar */
-  font-size: 16px; /* Adjusted size */
+  padding: 10px 20px; 
+  font-size: 16px; 
   font-weight: 600;
   color: var(--color-white);
   background-color: var(--color-primary-purple);
@@ -11,7 +9,7 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   box-shadow: var(--shadow-sm);
-  white-space: nowrap; /* Prevent text from wrapping */
+  white-space: nowrap; 
 }
 
 .submit-button:hover {

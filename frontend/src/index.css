@@ -21,13 +21,12 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-/* --- GLOBAL LAYOUT STYLES --- */
 html, body, #root {
-  height: 100vh; /* Use viewport height unit */
+  height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Prevent page-level scrollbars */
+  overflow: hidden; 
   font-family: var(--font-family);
   background-color: var(--color-background-page);
   color: var(--color-text-dark);
@@ -36,10 +35,10 @@ html, body, #root {
 .app-container {
   display: flex;
   flex-direction: column;
-  height: 100%; /* Fill the #root div */
+  height: 100%; 
 }
 
 .canvas-container {
-  flex-grow: 1; /* This is the key property that makes the canvas fill remaining space */
+  flex-grow: 1; 
   position: relative;
 }

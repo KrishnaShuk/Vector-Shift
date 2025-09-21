@@ -12,16 +12,14 @@ export const TextNode = ({ id, data }) => {
   const { updateTextNodeAndSyncEdges } = useStore(selector, shallow);
   
   const nodeName = data.nodeName ?? 'text_0';
-  // Always read the text directly from the data prop, which is our single source of truth
   const currText = data.text ?? '{{input_0}}';
 
   const handleTextChange = (e) => {
-    // The store function now handles everything, including updating the text
     updateTextNodeAndSyncEdges(id, e.target.value);
   };
   
   const inputs = [
-    { id: `${id}-input` }, // The default input handle
+    { id: `${id}-input` }, 
   ];
   
   const outputs = [

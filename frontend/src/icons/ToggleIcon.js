@@ -1,6 +1,3 @@
-import React from 'react';
-
-// This is a simple chevron icon that we can rotate with CSS.
 export const ToggleIcon = () => (
   <svg
     stroke="currentColor"
