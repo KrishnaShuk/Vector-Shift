@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { BaseNode } from './BaseNode';
+import TextareaAutosize from 'react-textarea-autosize';
 
 export const TextNode = ({ id, data }) => {
   const nodeName = data.nodeName ?? 'text_0';
   const [currText, setCurrText] = useState(data?.text || '{{input}}');
   
-  // FIX: Added a default input handle. This will become dynamic in Part 3.
   const inputs = [
     { id: `${id}-input` },
-  ]; 
+  ];
   
   const outputs = [
     {
@@ -18,6 +18,8 @@ export const TextNode = ({ id, data }) => {
       type: 'Text',
     },
   ];
+
+  const textAreaId = `${id}-text-area`; // Create a unique ID for the textarea
 
   return (
     <BaseNode
@@ -29,14 +31,16 @@ export const TextNode = ({ id, data }) => {
       outputs={outputs}
       hasOutputs={true}
     >
-      <label>
+      {/* FIX: The label and textarea are now separate sibling elements */}
+      <label htmlFor={textAreaId}>
         Text
-        <textarea 
-          value={currText} 
-          onChange={(e) => setCurrText(e.target.value)} 
-          rows={3}
-        />
       </label>
+      <TextareaAutosize 
+        id={textAreaId}
+        value={currText} 
+        onChange={(e) => setCurrText(e.target.value)}
+        minRows={1}
+      />
     </BaseNode>
   );
 };
